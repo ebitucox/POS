@@ -21,14 +21,14 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="../../index2.html" class="h1">MY <b>POS</b></a>
+                <a href="<?= base_url('auth') ?>" class="h1">MY <b>POS</b></a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">LoGin to start your session</p>
 
-                <form action="../../index3.html" method="post">
+                <form action="<?= base_url('auth/proses') ?>" method="POST">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Username">
+                        <input type="text" name="username" class="form-control" placeholder="Username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" class="form-control" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -50,7 +50,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">LogIn</button>
+                            <button type="submit" name="login" class="btn btn-primary btn-block">LogIn</button>
                         </div>
                         <!-- /.col -->
                     </div>
