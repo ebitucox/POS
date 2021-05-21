@@ -17,9 +17,21 @@ class Auth extends CI_Controller
             $this->load->model('user_m');
             $query = $this->user_m->login($post);
             if ($query->num_rows() > 0) {
-                echo "login berhasil";
+                $row = $query->row();
+                $params = array(
+                    'userid' => $row->user_id,
+                    'level' => $row->level
+                );
+                $this->session->set_userdata($params);
+                echo "<script>
+                    alert('selamat login berhasil');
+                    window.location='" . base_url('dashbord') . "';
+                </script>";
             } else {
-                echo 'login gagal';
+                echo "<script>
+                    alert('username atau password salah');
+                    window.location='" . base_url('auth/login') . "';
+                </script>";
             }
         }
     }
