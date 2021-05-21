@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/adminlte.min.css">
 </head>
 
+
 <body class="hold-transition login-page">
-    <div class="login-box">
+    <div class="login-box mb-5">
         <!-- /.login-logo -->
-        <div class="card card-outline card-primary">
+        <div class="card card-outline card-primary ">
             <div class="card-header text-center">
                 <a href="<?= base_url('auth') ?>" class="h1">MY <b>POS</b></a>
             </div>
