@@ -37,14 +37,14 @@
                 </li>
                 <li class="nav-item dropdown user user-menu">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-300 small"><?= $this->fungsi->user_login()->username ?></span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-300 small"><?= ucfirst($this->fungsi->user_login()->username) ?></span>
                         <img class="img-profile rounded-circle" src="<?= base_url() ?>assets/dist/img/user1-128x128.jpg" width="30">
                     </a>
                     <ul class="dropdown-menu">
                         <li class="user-header">
                             <img src="<?= base_url() ?>assets/dist/img/user1-128x128.jpg" alt="gambar">
-                            <p>Ebit
-                                <small>Universitas dipa makassar</small>
+                            <p><?= $this->fungsi->user_login()->name ?>
+                                <small><?= $this->fungsi->user_login()->address ?></small>
                             </p>
                         </li>
                         <li class="user-footer">
@@ -108,7 +108,7 @@
 
                         <li class="nav-header"><b>Main Navigation</b></li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="<?= base_url('dashbord') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -117,8 +117,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <a href="<?= base_url('supplier') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-truck-moving"></i>
                                 <p>
                                     Suppliers
                                 </p>
@@ -126,8 +126,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <a href="<?= base_url('customers') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Customers
                                 </p>
@@ -199,7 +199,7 @@
 
                             <li class="nav-header" style="color: azure;"><b>Setting</b></li>
                             <li class=" nav-item">
-                                <a href="" class="nav-link">
+                                <a href="<?= base_url('user') ?>" class="nav-link">
                                     <i class="nav-icon fa fa-user-alt"></i>
                                     <span>Users</span></a>
                             </li>
