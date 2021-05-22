@@ -1,0 +1,15 @@
+langka" & pengaturan
+1.mengatur
+	- base_url
+	- route
+	- library 'data_base' 'session' 'template'
+	- helper 'url' 'fungsi'
+	- libraries 'template.php'
+	- helper 'fungsi_helper.php' 
+	- setting database
+
+	
+2. membuat teplte
+3. membuat halaman login 
+4. membuat hak akses user
+
