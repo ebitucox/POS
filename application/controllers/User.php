@@ -59,10 +59,21 @@ class User extends CI_Controller
         }
     }
 
-    public function hapus($id)
+    public function hapus()
     {
-        $where = array('user_id' => $id);
-        $this->user_m->hapus_data($where, 'user');
-        redirect(base_url("user"));
+
+        $id = $this->input->post('user_id');
+        $this->user_m->hapus($id);
+
+
+        if ($this->db->affected_rows() > 0) {
+            echo "<script>
+                alert('data berhasil dihapus');
+            </script>";
+        }
+
+        echo "<script>
+        window.location='" . base_url('user') . "'
+        </script>";
     }
 }

@@ -46,8 +46,23 @@
                                 <td><?= $value->level == 1 ? "Admin" : "User" ?></td>
                                 <td class="text-center" width="160px">
 
-                                    <a href="<?= base_url('user/edit/') . $value->user_id ?>"><i class="fas fa-edit"></i></a> ||
-                                    <a href="<?= base_url('user/hapus/') . $value->user_id  ?>"><i class="fas fa-trash"></i></a>
+
+                                    <form action="<?= base_url('user/edit') ?>" method="POST">
+                                        <input type="hidden" value="<?= $value->user_id ?>">
+                                        <button class="btn btn-primary btn-xs">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </form>
+
+
+                                    <form action="<?= base_url('user/hapus') ?>" method="POST">
+                                        <input type="hidden" name="user_id" value="<?= $value->user_id ?>">
+
+                                        <button onclick="return confirm('Apakah anda Yakin?')" class="btn btn-danger btn-xs">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+
 
                                 </td>
                             </tr>

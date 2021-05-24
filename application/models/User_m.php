@@ -38,9 +38,9 @@ class User_m extends CI_Model
         $this->db->insert('user', $params);
     }
 
-    public function hapus_data($where, $table)
+    public function hapus($id)
     {
-        $this->db->where($where);
-        $this->db->delete($table);
+        $this->db->where('user_id', $id);
+        $this->db->delete('user');
     }
 }
