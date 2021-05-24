@@ -47,19 +47,11 @@
                                 <td class="text-center" width="160px">
 
 
-                                    <form action="<?= base_url('user/edit') ?>" method="POST">
-                                        <input type="hidden" value="<?= $value->user_id ?>">
-                                        <button class="btn btn-primary btn-xs">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                    </form>
-
-
                                     <form action="<?= base_url('user/hapus') ?>" method="POST">
                                         <input type="hidden" name="user_id" value="<?= $value->user_id ?>">
-
+                                        <a href="<?= base_url('user/edit/') . $value->user_id ?>" class="btn btn-primary btn-xs"><i class="fas fa-edit"></i></a>
                                         <button onclick="return confirm('Apakah anda Yakin?')" class="btn btn-danger btn-xs">
-                                            <i class="fa fa-trash"></i>
+                                            <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
 
@@ -76,5 +68,7 @@
         </div>
 
 
-    </div><!-- /.container-fluid -->
+    </div>
+
+
 </section>

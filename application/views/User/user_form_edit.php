@@ -18,7 +18,7 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>Add User</h2>
+                        <h2>Edit User</h2>
                     </div>
                     <div class="col-md-6">
                         <a href="<?= base_url('user') ?>" class="btn btn-info btn-flat mb-2" style="float: right !important;">
@@ -36,35 +36,34 @@
 
                         <form action="" class="mt-3 ml-3 " method="POST">
                             <div class="form-group ">
-                                <label for="">Name *</label>
-                                <input type="text" name="fullname" value="<?= set_value('fullname') ?>" class="form-control">
-                                <!-- <span class="help-block"></span> -->
-                                <strong style="color:red;"> <?= form_error('fullname') ?></strong>
+                                <label for="">Name</label>
+                                <input type="text" name="fullname" value="<?= $this->input->post('fullname') ?? $row->name ?>" class="form-control">
+                                <strong style="color:red;"><?= form_error('fullname') ?></strong>
                             </div>
                             <div class="form-group">
-                                <label>Username *</label>
-                                <input type="text" name="username" value="<?= set_value('username') ?>" class="form-control">
+                                <label>Username</label>
+                                <input type="text" name="username" value="<?= $this->input->post('username') ?? $row->username ?>" class="form-control">
                                 <strong style="color:red;"><?= form_error('username') ?></strong>
                             </div>
                             <div class=" form-group">
-                                <label for="">Password *</label>
-                                <input type="password" name="password" value="<?= set_value('password') ?>" class="form-control">
+                                <label for="">Password</label>
+                                <input type="password" name="password" value="<?= $this->input->post('fullname') ?>" class="form-control">
                                 <strong style="color:red;"><?= form_error('password') ?></strong>
                             </div>
                             <div class=" form-group">
-                                <label for="">Password Confirmation *</label>
+                                <label for="">Password Confirmation</label>
                                 <input type="password" name="passconf" value="<?= set_value('passconf') ?>" class="form-control">
                                 <strong style="color:red;"><?= form_error('passconf') ?></strong>
                             </div>
                             <div class="form-group">
-                                <label for="">Address *</label>
+                                <label for="">Address</label>
                                 <textarea name="address" class="form-control"> <?= set_value('address') ?>
                                 </textarea>
                                 <strong style="color:red;"><?= form_error('address') ?></strong>
 
                             </div>
                             <div class="form-group">
-                                <label for="">Level *</label>
+                                <label for="">Level</label>
                                 <select name="level" class="form-control">
                                     <option value="">Pilih</option>
                                     <option value="1" <?= set_value('level') == 1 ? "selected" : null ?>>Admin</option>
