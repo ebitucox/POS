@@ -37,25 +37,25 @@
                         <form action="" class="mt-3 " method="POST">
                             <div class="form-group">
                                 <label for="">Name *</label>
-                                <input type="text" name="fullname" class="form-control">
+                                <input type="text" name="fullname" class="form-control" value="<?= set_value('fullname') ?>">
                             </div>
                             <div class="form-group">
                                 <label>Username *</label>
                                 <input type="text" name="username" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class=" form-group">
                                 <label for="">Password *</label>
                                 <input type="password" name="password" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class=" form-group">
                                 <label for="">Password Confirmation *</label>
                                 <input type="password" name="passconf" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class=" form-group">
                                 <label for="">Address *</label>
                                 <textarea name="address" class="form-control">
                                 </textarea>
-                                <!-- <input type="password" name="password" class="form-control"> -->
+
                             </div>
                             <div class="form-group">
                                 <label for="">Level *</label>
