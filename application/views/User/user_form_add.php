@@ -1,7 +1,7 @@
 <!-- Content Wrapper. Contains page content -->
 
 <!-- Content Header (Page header) -->
-<section class="content-header ml-3">
+<section class="content-header">
     <h1>DATA
         <small><strong>user</small>
     </h1>
@@ -30,34 +30,35 @@
 
                 </div>
             </div>
-            <div class="box-body ml-3">
+            <div class="box-body">
                 <div class="row">
-                    <div class="col-md-4">
-                        <form action="" class="mt-3" method="POST">
+                    <div class="col-md-4 offset-md-4 ">
+                        <?php echo validation_errors(); ?>
+                        <form action="" class="mt-3 " method="POST">
                             <div class="form-group">
                                 <label for="">Name *</label>
                                 <input type="text" name="fullname" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Username</label>
+                                <label>Username *</label>
                                 <input type="text" name="username" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Password</label>
+                                <label for="">Password *</label>
                                 <input type="password" name="password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Password Confirmation </label>
+                                <label for="">Password Confirmation *</label>
                                 <input type="password" name="passconf" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="">Address</label>
+                                <label for="">Address *</label>
                                 <textarea name="address" class="form-control">
                                 </textarea>
                                 <!-- <input type="password" name="password" class="form-control"> -->
                             </div>
                             <div class="form-group">
-                                <label for="">Level</label>
+                                <label for="">Level *</label>
                                 <select name="level" class="form-control">
                                     <option value="">Pilih</option>
                                     <option value="1">Admin</option>
