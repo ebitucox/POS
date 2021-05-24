@@ -14,6 +14,7 @@ class User extends CI_Controller
     }
     public function add()
     {
+
         $this->template->load('template', 'user/user_form_add');
     }
 }
