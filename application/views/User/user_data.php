@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped text-center">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -44,11 +44,11 @@
                                 <td><?= $value->name ?></td>
                                 <td><?= $value->address ?></td>
                                 <td><?= $value->level == 1 ? "Admin" : "User" ?></td>
-                                <td>
-                                    <center>
-                                        <a href=""><i class="fas fa-edit"></i></a>
-                                        <a href=""><i class="fas fa-trash"></i></a>
-                                    </center>
+                                <td class="text-center" width="160px">
+
+                                    <a href="<?= base_url('user/edit/') . $value->user_id ?>"><i class="fas fa-edit"></i></a> ||
+                                    <a href="<?= base_url('user/hapus/') . $value->user_id  ?>"><i class="fas fa-trash"></i></a>
+
                                 </td>
                             </tr>
                         <?php endforeach ?>
