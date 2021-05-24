@@ -26,4 +26,21 @@ class User_m extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
+    public function add($post)
+    {
+        $params['username'] = $post['username'];
+        $params['password'] = md5($post['passconf']);
+        $params['name'] = $post['fullname'];
+        $params['address'] = $post['address'];
+        $params['level'] = $post['level'];
+
+        $this->db->insert('user', $params);
+    }
+
+    public function hapus_data($where, $table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
+    }
 }
