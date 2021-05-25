@@ -61,7 +61,7 @@ class User extends CI_Controller
 
 
         $this->form_validation->set_rules('fullname', 'Nama', 'required');
-        $this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|is_unique[user.username]');
+        $this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|is_unique[user.username]|callback_username_check');
 
         // 
         if ($this->input->post('password')) {
@@ -113,6 +113,17 @@ class User extends CI_Controller
         }
     }
 
+    public function username_check()
+    {
+        $post = $this->input->post(null, TRUE);
+        $query = $this->db->query("SELECT * FROM user WHERE username = '$post[username]' AND user_id != '$post[user_id]'");
+        if ($query->num_rows() > 0) {
+            $this->form_validation->set_message('username_check', '{field} ini sudah dipakai, silahkan ganti');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
 
     public function hapus()
     {

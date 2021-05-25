@@ -37,6 +37,7 @@
                         <form action="" class="mt-3 ml-3 " method="POST">
                             <div class="form-group ">
                                 <label for="">Name</label>
+                                <input type="hidden" name="user_id" value="<?= $row->user_id ?>">
                                 <input type="text" name="fullname" value="<?= $this->input->post('fullname') ?? $row->name ?>" class="form-control">
                                 <strong style="color:red;"><?= form_error('fullname') ?></strong>
                             </div>
@@ -46,18 +47,18 @@
                                 <strong style="color:red;"><?= form_error('username') ?></strong>
                             </div>
                             <div class=" form-group">
-                                <label for="">Password</label>
-                                <input type="password" name="password" value="<?= $this->input->post('fullname') ?>" class="form-control">
+                                <label for="">Password</label><small> (Biarkan kosong bila tidak ingin mengganti password...)</small>
+                                <input type="password" name="password" value="<?= $this->input->post('password') ?>" class="form-control">
                                 <strong style="color:red;"><?= form_error('password') ?></strong>
                             </div>
                             <div class=" form-group">
                                 <label for="">Password Confirmation</label>
-                                <input type="password" name="passconf" value="<?= set_value('passconf') ?>" class="form-control">
+                                <input type="password" name="passconf" value="<?= $this->input->post('passconf') ?>" class="form-control">
                                 <strong style="color:red;"><?= form_error('passconf') ?></strong>
                             </div>
                             <div class="form-group">
                                 <label for="">Address</label>
-                                <textarea name="address" class="form-control"> <?= set_value('address') ?>
+                                <textarea name="address" class="form-control"> <?= $this->input->post('address') ?? $row->address ?>
                                 </textarea>
                                 <strong style="color:red;"><?= form_error('address') ?></strong>
 
@@ -65,10 +66,9 @@
                             <div class="form-group">
                                 <label for="">Level</label>
                                 <select name="level" class="form-control">
-                                    <option value="">Pilih</option>
-                                    <option value="1" <?= set_value('level') == 1 ? "selected" : null ?>>Admin</option>
-                                    <option value="2" <?= set_value('level') == 2 ? "selected" : null ?>>User</option>
-
+                                    <?php $level = $this->input->post('level') ? $this->input->post('level') : $row->level  ?>
+                                    <option value="1">Admin</option>
+                                    <option value="2" <?= $level == 2 ? 'selected' : null ?>>User</option>
                                 </select>
                                 <strong style="color:red;"><?= form_error('level') ?></strong>
                             </div>
