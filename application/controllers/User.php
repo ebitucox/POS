@@ -7,6 +7,7 @@ class User extends CI_Controller
     {
         parent::__construct();
         check_not_login();
+        check_admin();
         $this->load->model('user_m');
     }
 
@@ -33,7 +34,6 @@ class User extends CI_Controller
         );
         $this->form_validation->set_rules('address', 'Alamat', 'required');
         $this->form_validation->set_rules('level', 'Level', 'required');
-
         $this->form_validation->set_message('required', '%s  masih kosong silahkan diisi...!!');
         $this->form_validation->set_message('min_length', '{field} minimal 5 karakter');
         $this->form_validation->set_message('is_unique', '{field} ini sudah dipakai, silahkan ganti');
@@ -61,7 +61,7 @@ class User extends CI_Controller
 
 
         $this->form_validation->set_rules('fullname', 'Nama', 'required');
-        $this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|is_unique[user.username]|callback_username_check');
+        $this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|callback_username_check');
 
         // 
         if ($this->input->post('password')) {
