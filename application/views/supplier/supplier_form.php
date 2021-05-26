@@ -18,7 +18,7 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>ADD USER</h2>
+                        <h3><b><?= $page; ?> supplier</b></h3>
                     </div>
                     <div class="col-md-6">
                         <a href="<?= base_url('supplier') ?>" class="btn btn-info btn-flat mb-2" style="float: right !important;">
@@ -35,6 +35,7 @@
 
                             <div class="form-group">
                                 <label for="">Supplier Name</label>
+                                <input type="hidden" name="id" value="<?= $row->supplier_id ?>">
                                 <input type="text" name="name" value="<?= $row->name ?>" class="form-control" required>
 
                             </div>

@@ -25,9 +25,25 @@ class Supplier_m extends CI_Model
             'phone' => $post['phone'],
             'address' => $post['address'],
             'description' => empty($post['description']) ? null : $post['description'],
+
         ];
         $this->db->insert('supplier', $params);
     }
+
+    public function edit($post)
+    {
+        $params['name'] = $post['name'];
+
+        $params['phone'] = $post['phone'];
+        $params['address'] = $post['address'];
+        $params['description'] = $post['description'];
+        $params['updated'] = date('Y-m-d H:i:s');
+
+        $this->db->where('supplier_id', $post['id']);
+        $this->db->update('supplier', $params);
+    }
+
+
 
     public function hapus($id)
     {

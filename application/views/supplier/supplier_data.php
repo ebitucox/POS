@@ -13,7 +13,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"><b>DATA USER</b></h3>
+                <h3 class="card-title"><b>DATA SUPPLIER</b></h3>
                 <div style="float: right !important;">
                     <a href="<?= base_url('supplier/add') ?>" class="btn btn-primary btn-flat mb-2">
                         <i class="fa fa-user-plus"></i>
@@ -46,7 +46,14 @@
                                 <td><?= $value->description ?></td>
                                 <td class="text-center" width="160px">
 
-                                    <a href="<?= base_url('supplier/hapus/') . $value->supplier_id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda Yakin?')"><i class="fas fa-trash"></i></a>
+
+                                    <a href="<?= base_url('supplier/edit/') . $value->supplier_id ?>" class="btn btn-info btn-xs">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+
+                                    <a href="<?= base_url('supplier/hapus/') . $value->supplier_id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda Yakin?')">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
