@@ -19,6 +19,26 @@ class Supplier extends CI_Controller
         // $this->template->load('template', 'supplier/supplier_data', $data);
     }
 
+    public function add()
+    {
+        $supplier = new stdClass();
+        $supplier->supplier_id = null;
+        $supplier->name = null;
+        $supplier->phone = null;
+        $supplier->address = null;
+        $supplier->description = null;
+
+        $data = array(
+            'page' => 'add',
+            'row'   => $supplier
+        );
+        $this->template->load('template', 'supplier/supplier_form', $data);
+    }
+
+    public function process()
+    {
+    }
+
     public function hapus($id)
     {
 
