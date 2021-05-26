@@ -26,24 +26,22 @@
                             Back
                         </a>
                     </div>
-
-
                 </div>
             </div>
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-4 offset-md-4 ">
-                        <form action="<?= base_url('supplier/proses') ?>" class="mt-3 ml-3 " method="POST">
+                        <form action="<?= base_url('supplier/process') ?>" class="mt-3 ml-3 " method="POST">
 
                             <div class="form-group">
                                 <label for="">Supplier Name</label>
-                                <input type="text" name="supplier_name" value="<?= $row->name ?>" class="form-control" required>
+                                <input type="text" name="name" value="<?= $row->name ?>" class="form-control" required>
 
                             </div>
 
                             <div class="form-group">
                                 <label for="">Phone</label>
-                                <input type="text" name="phone" value="<?= $row->phone ?>" class="form-control" required>
+                                <input type="number" name="phone" value="<?= $row->phone ?>" class="form-control" required>
 
                             </div>
                             <div class="form-group">
@@ -52,10 +50,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Description</label>
-                                <input type="text" name="description" value="<?= $row->description ?>" class="form-control" required>
+                                <input type="text" name="description" value="<?= $row->description ?>" class="form-control">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-flat">
+                                <button type="submit" name="<?= $page; ?>" class="btn btn-primary btn-flat">
                                     <i class="fa fa-paper-plane"></i>
                                     Save</button>
                                 <button type="reset" class="btn btn-secondary btn-flat">Reset</button>
@@ -64,8 +62,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
 
 

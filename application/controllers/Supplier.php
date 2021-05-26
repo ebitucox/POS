@@ -37,7 +37,18 @@ class Supplier extends CI_Controller
 
     public function process()
     {
+        $post = $this->input->post(null, true);
+        if (isset($_POST['add'])) {
+            $this->supplier_m->add($post);
+        }
+        if ($this->db->affected_rows() > 0) {
+            echo "<script>
+                    alert('Data berhasil disimpan');
+            </script>";
+        }
+        echo "<script>window.location='" . base_url('supplier') . "' </script>";
     }
+
 
     public function hapus($id)
     {

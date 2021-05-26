@@ -18,6 +18,17 @@ class Supplier_m extends CI_Model
         return $query;
     }
 
+    public function add($post)
+    {
+        $params = [
+            'name' => $post['name'],
+            'phone' => $post['phone'],
+            'address' => $post['address'],
+            'description' => empty($post['description']) ? null : $post['description'],
+        ];
+        $this->db->insert('supplier', $params);
+    }
+
     public function hapus($id)
     {
 
