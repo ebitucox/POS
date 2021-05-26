@@ -17,4 +17,11 @@ class Supplier_m extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
+    public function hapus($id)
+    {
+
+        $this->db->where('supplier_id', $id);
+        $this->db->delete('supplier');
+    }
 }

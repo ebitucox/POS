@@ -122,7 +122,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= base_url('supplier') ?>" class="nav-link">
+                            <a href="<?= base_url('Supplier') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-truck-moving"></i>
                                 <p>
                                     Suppliers
