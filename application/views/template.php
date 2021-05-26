@@ -131,7 +131,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= base_url('customers') ?>" class="nav-link">
+                            <a href="<?= base_url('customer') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Customers

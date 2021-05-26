@@ -1,7 +1,7 @@
 <?php
 // defined('BASEPATH') or exit('No direct script access allowed');
 
-class Customer extends CI_Controller
+class Pelanggan extends CI_Controller
 {
 
     function __construct()
@@ -24,9 +24,10 @@ class Customer extends CI_Controller
         $customer = new stdClass();
         $customer->customer_id = null;
         $customer->name = null;
+        $customer->gender = null;
         $customer->phone = null;
         $customer->address = null;
-        $customer->description = null;
+
 
         $data = array(
             'page' => 'add',

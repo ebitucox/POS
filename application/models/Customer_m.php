@@ -22,9 +22,10 @@ class Customer_m extends CI_Model
     {
         $params = [
             'name' => $post['name'],
+            'gender' => $post['gender'],
             'phone' => $post['phone'],
             'address' => $post['address'],
-            'description' => empty($post['description']) ? null : $post['description'],
+
 
         ];
         $this->db->insert('customer', $params);
@@ -33,10 +34,9 @@ class Customer_m extends CI_Model
     public function edit($post)
     {
         $params['name'] = $post['name'];
-
+        $params['gender'] = $post['gender'];
         $params['phone'] = $post['phone'];
         $params['address'] = $post['address'];
-        $params['description'] = $post['description'];
         $params['updated'] = date('Y-m-d H:i:s');
 
         $this->db->where('customer_id', $post['id']);
