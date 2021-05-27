@@ -2,7 +2,7 @@
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
-    <h1><b>DATA category</b>
+    <h1><b>DATA unit</b>
     </h1>
     <ol class="breadcrumb">
         <li><a href=""><i class="fa fa-dashbord"></i></a></li>
@@ -11,12 +11,11 @@
     </ol>
     <div class="content">
         <?php $this->load->view('message') ?>
-
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"><b>DATA category</b></h3>
+                <h3 class="card-title"><b>DATA unit</b></h3>
                 <div style="float: right !important;">
-                    <a href="<?= base_url('category/add') ?>" class="btn btn-primary btn-flat mb-2">
+                    <a href="<?= base_url('unit/add') ?>" class="btn btn-primary btn-flat mb-2">
                         <i class="fa fa-user-plus"></i>
                         create
                     </a>
@@ -43,11 +42,11 @@
                                 <td class="text-center" width="160px">
 
 
-                                    <a href="<?= base_url('category/edit/') . $value->category_id ?>" class="btn btn-info btn-xs">
+                                    <a href="<?= base_url('unit/edit/') . $value->unit_id ?>" class="btn btn-info btn-xs">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <a href="<?= base_url('category/hapus/') . $value->category_id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda Yakin?')">
+                                    <a href="<?= base_url('unit/hapus/') . $value->unit_id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda Yakin?')">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
