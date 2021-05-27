@@ -139,21 +139,33 @@
                             </a>
                         </li>
 
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-archive"></i>
                                 <p>
-                                    Product
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right"></span>
+                                    Produk
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav-treeview ml-4">
-                                <li class="nav-link">
-                                    <a href=""><i class="fa fa-circle-o"></i>Categories</a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('category') ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Categories</p>
+                                    </a>
                                 </li>
-                                <li class="nav-link "><a href=""><i class="fa fa-circle-o"></i>Units</a></li>
-                                <li class="nav-link "><a href=""><i class="fa fa-circle-o"></i>Items</a></li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('units') ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Units</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('items') ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Items</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 

@@ -2,7 +2,7 @@
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
-    <h1><b>DATA CUSTOMER</b>
+    <h1><b>DATA category</b>
     </h1>
     <ol class="breadcrumb">
         <li><a href=""><i class="fa fa-dashbord"></i></a></li>
@@ -10,26 +10,24 @@
 
     </ol>
     <div class="content">
-
+        <?php $this->load->view('message') ?>
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"><b>DATA CUSTOMER</b></h3>
+                <h3 class="card-title"><b>DATA category</b></h3>
                 <div style="float: right !important;">
-                    <a href="<?= base_url('customer/add') ?>" class="btn btn-primary btn-flat mb-2">
+                    <a href="<?= base_url('category/add') ?>" class="btn btn-primary btn-flat mb-2">
                         <i class="fa fa-user-plus"></i>
                         create
                     </a>
                 </div>
             </div>
             <div class="box-body table-responsive">
+                <?= $this->session->flashdata('success'); ?>
                 <table class="table table-bordered table-striped text-center">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Name</th>
-                            <th>Gender</th>
-                            <th>Phone</th>
-                            <th>Address</th>
                             <th>Action</th>
 
                         </tr>
@@ -41,20 +39,14 @@
                             <tr>
                                 <td style="width:5%;"><?= $no++ ?></td>
                                 <td><?= $value->name ?></td>
-                                <td>
-                                    <?= $value->gender ?>
-                                </td>
-                                <td><?= $value->phone ?></td>
-                                <td><?= $value->address ?></td>
-
                                 <td class="text-center" width="160px">
 
 
-                                    <a href="<?= base_url('customer/edit/') . $value->customer_id ?>" class="btn btn-info btn-xs">
+                                    <a href="<?= base_url('category/edit/') . $value->category_id ?>" class="btn btn-info btn-xs">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <a href="<?= base_url('customer/hapus/') . $value->customer_id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda Yakin?')">
+                                    <a href="<?= base_url('category/hapus/') . $value->category_id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda Yakin?')">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
