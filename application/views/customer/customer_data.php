@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="box-body table-responsive">
-                <table class="table table-bordered table-striped text-center">
+                <table class="table table-bordered table-striped text-center" id="table1">
                     <thead>
                         <tr>
                             <th>No</th>
