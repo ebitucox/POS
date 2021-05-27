@@ -11,19 +11,19 @@
     </ol>
     <div class="content">
         <?php $this->load->view('message') ?>
+
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title"><b>DATA unit</b></h3>
                 <div style="float: right !important;">
-                    <a href="<?= base_url('unit/add') ?>" class="btn btn-primary btn-flat mb-2" id="table1">
+                    <a href="<?= base_url('unit/add') ?>" class="btn btn-primary btn-flat mb-2">
                         <i class="fa fa-user-plus"></i>
                         create
                     </a>
                 </div>
             </div>
             <div class="box-body table-responsive">
-
-                <table class="table table-bordered table-striped text-center">
+                <table class="table table-bordered table-striped text-center" id="table1">
                     <thead>
                         <tr>
                             <th>No</th>

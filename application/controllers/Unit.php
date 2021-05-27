@@ -65,7 +65,7 @@ class Unit extends CI_Controller
         if ($this->db->affected_rows() > 0) {
             $this->session->set_flashdata('success', 'Data Berhasil disimpan');
         }
-        redirect('unit');
+        redirect(base_url('unit'));
     }
 
     public function hapus($id)
@@ -75,6 +75,6 @@ class Unit extends CI_Controller
         if ($this->db->affected_rows() > 0) {
             $this->session->set_flashdata('success', 'Data Berhasil dihapus');
         }
-        redirect('unit');
+        redirect(base_url('unit'));
     }
 }

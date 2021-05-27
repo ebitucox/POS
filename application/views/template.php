@@ -110,10 +110,14 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-
                         <li class="nav-header"><b>Main Navigation</b></li>
                         <li class="nav-item">
-                            <a href="<?= base_url('dashbord') ?>" class="nav-link">
+                            <a href="<?= base_url('dashbord') ?>" <?php if ($this->uri->segment(1) == "dashbord" || $this->uri->segment(1) == "") {
+                                                                        echo 'class="nav-link active"';
+                                                                    } else {
+                                                                        echo 'class="nav-link"';
+                                                                    }
+                                                                    ?>>
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -122,7 +126,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= base_url('Supplier') ?>" class="nav-link">
+                            <a href="<?= base_url('Supplier') ?>" <?php if ($this->uri->segment(1) == "Supplier") {
+                                                                        echo 'class="nav-link active"';
+                                                                    } else {
+                                                                        echo 'class="nav-link"';
+                                                                    }
+                                                                    ?>>
                                 <i class="nav-icon fas fa-truck-moving"></i>
                                 <p>
                                     Suppliers
@@ -131,7 +140,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= base_url('customer') ?>" class="nav-link">
+                            <a href="<?= base_url('customer') ?>" <?php if ($this->uri->segment(1) == "Customer") {
+                                                                        echo 'class="nav-link active"';
+                                                                    } else {
+                                                                        echo 'class="nav-link"';
+                                                                    }
+                                                                    ?>>
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Customers
@@ -140,8 +154,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-archive"></i>
+                            <a href="#" <?php if ($this->uri->segment(1) == "category" || $this->uri->segment(1) == "unit") {
+                                            echo 'class="nav-link active"';
+                                        } else {
+                                            echo 'class="nav-link"';
+                                        }
+                                        ?>> <i class="nav-icon fas fa-archive"></i>
                                 <p>
                                     Produk
                                     <i class="right fas fa-angle-left"></i>
@@ -149,13 +167,23 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('category') ?>" class="nav-link">
+                                    <a href="<?= base_url('category') ?>" <?php if ($this->uri->segment(1) == "Category") {
+                                                                                echo 'class="nav-link active"';
+                                                                            } else {
+                                                                                echo 'class="nav-link"';
+                                                                            }
+                                                                            ?>>
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Categories</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('unit') ?>" class="nav-link">
+                                    <a href="<?= base_url('unit') ?>" <?php if ($this->uri->segment(1) == "Unit") {
+                                                                            echo 'class="nav-link active"';
+                                                                        } else {
+                                                                            echo 'class="nav-link"';
+                                                                        }
+                                                                        ?>>
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Units</p>
                                     </a>
@@ -253,8 +281,12 @@
         //         "responsive": true,
         //     });
         // });\
+
+
         $(document).ready(function() {
-            $('#table1').DataTable()
+
+            $('#table1').DataTable();
+
 
         });
     </script>
