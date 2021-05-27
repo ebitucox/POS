@@ -10,7 +10,7 @@
 
     </ol>
     <div class="content">
-
+        <?php $this->load->view('message') ?>
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title"><b>DATA CUSTOMER</b></h3>

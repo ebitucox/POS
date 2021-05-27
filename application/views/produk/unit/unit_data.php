@@ -15,7 +15,7 @@
             <div class="card-header">
                 <h3 class="card-title"><b>DATA unit</b></h3>
                 <div style="float: right !important;">
-                    <a href="<?= base_url('unit/add') ?>" class="btn btn-primary btn-flat mb-2">
+                    <a href="<?= base_url('unit/add') ?>" class="btn btn-primary btn-flat mb-2" id="table1">
                         <i class="fa fa-user-plus"></i>
                         create
                     </a>

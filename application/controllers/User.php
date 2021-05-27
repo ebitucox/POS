@@ -48,11 +48,9 @@ class User extends CI_Controller
             $post = $this->input->post(null, TRUE);
             $this->user_m->add($post);
             if ($this->db->affected_rows() > 0) {
-                echo "<script>
-                    alert('Date berhasil diupload);
-            </script>";
+                $this->session->set_flashdata('success', 'Data Berhasil diupload');
             }
-            echo "<script>window.location='" . base_url('user') . "' </script>";
+            redirect(base_url('user'));
         }
     }
 
@@ -105,11 +103,9 @@ class User extends CI_Controller
             $post = $this->input->post(null, TRUE);
             $this->user_m->edit($post);
             if ($this->db->affected_rows() > 0) {
-                echo "<script>
-                    alert('Date berhasil diupload);
-            </script>";
+                $this->session->set_flashdata('success', 'Data Berhasil diedit');
             }
-            echo "<script>window.location='" . base_url('user') . "' </script>";
+            redirect(base_url('user'));
         }
     }
 
@@ -133,13 +129,8 @@ class User extends CI_Controller
 
 
         if ($this->db->affected_rows() > 0) {
-            echo "<script>
-                alert('data berhasil dihapus');
-            </script>";
+            $this->session->set_flashdata('success', 'Data Berhasil dihapus');
         }
-
-        echo "<script>
-        window.location='" . base_url('user') . "'
-        </script>";
+        redirect(base_url('user'));
     }
 }

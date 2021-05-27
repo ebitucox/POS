@@ -63,11 +63,9 @@ class Supplier extends CI_Controller
             $this->supplier_m->edit($post);
         }
         if ($this->db->affected_rows() > 0) {
-            echo "<script>
-                    alert('Data berhasil disimpan');
-            </script>";
+            $this->session->set_flashdata('success', 'Data berhasil ditambahkan');
         }
-        echo "<script>window.location='" . base_url('supplier') . "' </script>";
+        redirect(base_url('supplier'));
     }
 
 
@@ -78,13 +76,8 @@ class Supplier extends CI_Controller
 
         $this->supplier_m->hapus($id);
         if ($this->db->affected_rows() > 0) {
-            echo "<script>
-                alert('data berhasil dihapus');
-            </script>";
+            $this->session->set_flashdata('success', 'Data berhasil dihapus');
         }
-
-        echo "<script>
-        window.location='" . base_url('supplier') . "'
-        </script>";
+        redirect(base_url('supplier'));
     }
 }
