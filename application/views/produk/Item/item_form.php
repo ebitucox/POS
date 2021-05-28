@@ -34,17 +34,25 @@
 
                             <div class="form-group">
 
-                                <label for="">Barcod *</label>
+                                <label for="barcode">Barcode *</label>
                                 <input type="hidden" name="id" value="<?= $row->item_id ?>">
-
-                                <input type="text" name="barcode" value="<?= $row->barcode ?>" class="form-control" required>
+                                <input type="text" id="barcode" name="barcode" value="<?= $row->barcode ?>" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Product Name *</label>
-                                <input type="text" name="name" value="<?= $row->name ?>" class="form-control" required>
+                                <label for="name">Product Name *</label>
+                                <input type="text" name="name" id="name" value="<?= $row->name ?>" class="form-control" required>
 
                             </div>
 
+                            <div class="form-group">
+                                <label for="">Category *</label>
+                                <select name="category" class="form-control">
+                                    <option value="">- Pilih -</option>
+                                    <?php foreach ($category->result() as $key => $value) : ?>
+                                        <option value="<?= $value->category_id ?>"><?= $value->name ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
 
                             <div class="form-group">
                                 <label for="">Price</label>
