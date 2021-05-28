@@ -156,6 +156,8 @@
                         <li class="nav-item">
                             <a href="#" <?php if ($this->uri->segment(1) == "category" || $this->uri->segment(1) == "unit") {
                                             echo 'class="nav-link active"';
+                                        } else if ($this->uri->segment(1) == "item") {
+                                            echo 'class="nav-link active"';
                                         } else {
                                             echo 'class="nav-link"';
                                         }
@@ -189,7 +191,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('items') ?>" class="nav-link">
+                                    <a href="<?= base_url('item') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Items</p>
                                     </a>

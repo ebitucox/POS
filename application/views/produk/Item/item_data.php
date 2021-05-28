@@ -14,11 +14,11 @@
 
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"><b>DATA unit</b></h3>
+                <h3 class="card-title"><b>DATA Product Item</b></h3>
                 <div style="float: right !important;">
-                    <a href="<?= base_url('unit/add') ?>" class="btn btn-primary btn-flat mb-2">
+                    <a href="<?= base_url('item/add') ?>" class="btn btn-primary btn-flat mb-2">
                         <i class="fa fa-user-plus"></i>
-                        create
+                        Create Product Item
                     </a>
                 </div>
             </div>
@@ -42,11 +42,11 @@
                                 <td class="text-center" width="160px">
 
 
-                                    <a href="<?= base_url('unit/edit/') . $value->unit_id ?>" class="btn btn-info btn-xs">
+                                    <a href="<?= base_url('item/edit/') . $value->category_id ?>" class="btn btn-info btn-xs">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <a href="<?= base_url('unit/hapus/') . $value->unit_id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda Yakin?')">
+                                    <a href="<?= base_url('item/hapus/') . $value->category_id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda Yakin?')">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
