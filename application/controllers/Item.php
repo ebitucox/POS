@@ -87,6 +87,7 @@ class Item extends CI_Controller
         $config['allowed_types']        = 'gif|jpg|png|jpeg';
         $config['max_size']             = 2048;
         $config['file_name']            = 'item-' . date('ymd') . '_' . substr(md5(rand()), 0, 10);
+
         $this->load->library('upload', $config);
 
         $post = $this->input->post(null, TRUE);
@@ -107,7 +108,7 @@ class Item extends CI_Controller
                         redirect(base_url('item'));
                     } else {
                         $error = $this->upload->display_errors();
-                        $this->session->set_flashdata('error', $error);
+                        $this->session->set_flashdata('error', 'file yang anda upload tidak memenuhi syarat');
                         redirect(base_url('item/add'));
                     }
                 } else {
@@ -159,11 +160,14 @@ class Item extends CI_Controller
     }
 
 
-
-
     public function hapus($id)
     {
 
+        $item = $this->item_m->get($id)->row();
+        if ($item->image != null) {
+            $target_file = './uploads/product/' . $item->image;
+            unlink($target_file);
+        }
         $this->item_m->hapus($id);
         if ($this->db->affected_rows() > 0) {
             $this->session->set_flashdata('success', 'Data berhasil dihapus');

@@ -14,7 +14,10 @@
 
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"><b>DATA Product Item</b></h3>
+                <div style="float: left !important;">
+                    <h3 class="card-title"><b>DATA Product Item</b></h3>
+                </div>
+
                 <div style="float: right !important;">
                     <a href="<?= base_url('item/add') ?>" class="btn btn-primary btn-flat mb-2">
                         <i class="fa fa-user-plus"></i>
