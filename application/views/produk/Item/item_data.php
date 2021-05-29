@@ -27,7 +27,12 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Barcode</th>
                             <th>Name</th>
+                            <th>Category</th>
+                            <th>Unit</th>
+                            <th>Price</th>
+                            <th>Stock</th>
                             <th>Action</th>
 
                         </tr>
@@ -38,7 +43,13 @@
                         foreach ($row->result() as $key => $value) : ?>
                             <tr>
                                 <td style="width:5%;"><?= $no++ ?></td>
+                                <td><?= $value->barcode ?></td>
                                 <td><?= $value->name ?></td>
+                                <td><?= $value->category_name ?></td>
+                                <td><?= $value->unit_name ?></td>
+                                <td><?= $value->price ?></td>
+                                <td><?= $value->stock ?></td>
+
                                 <td class="text-center" width="160px">
 
 
