@@ -33,6 +33,7 @@
                             <th>Unit</th>
                             <th>Price</th>
                             <th>Stock</th>
+                            <th>Image</th>
                             <th>Action</th>
 
                         </tr>
@@ -49,6 +50,12 @@
                                 <td><?= $value->unit_name ?></td>
                                 <td><?= $value->price ?></td>
                                 <td><?= $value->stock ?></td>
+                                <td>
+                                    <?php if ($value->image != null) { ?>
+                                        <img src="<?= base_url('uploads/product/' . $value->image) ?>" alt="" style="width: 100px;">
+                                    <?php } ?>
+
+                                </td>
 
                                 <td class="text-center" width="160px">
 

@@ -32,7 +32,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-4 offset-md-4 ">
-                        <form action="<?= base_url('item/process') ?>" class="mt-3 ml-3 " method="POST">
+                        <form action="<?= base_url('item/process') ?>" class="mt-3 ml-3 " method="POST" enctype="multipart/form-data">
 
                             <div class="form-group">
 
@@ -55,7 +55,6 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="">Unit *</label>
                                 <?php echo form_dropdown('unit', $unit, $selectedunit, ['class' => 'form-control', 'required' => 'required']) ?>
@@ -66,6 +65,11 @@
                                 <label for="">Price</label>
                                 <input type="text" name="price" value="<?= $row->price ?>" class="form-control" required>
 
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Image</label>
+                                <input type="file" name="image" class="form-control">
                             </div>
 
                             <div class="form-group">
