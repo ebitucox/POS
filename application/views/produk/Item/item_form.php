@@ -10,17 +10,19 @@
 
 
     </ol>
+
+
     <div class="content">
+        <?php $this->view('message');  ?>
         <div class="card">
             <div class="card-header">
-
 
                 <div class="row">
                     <div class="col-md-6">
                         <h3><b><?= $page; ?> Item</b></h3>
                     </div>
                     <div class="col-md-6">
-                        <a href="<?= base_url('item') ?>" class="btn btn-info btn-flat mb-2" style="float: right !important;">
+                        <a href="<?= base_url('item') ?>" class="btn btn-primary btn-flat mb-2" style="float: right !important;">
                             <i class="fa fa-undo"></i>
                             Back
                         </a>
