@@ -42,11 +42,11 @@
                                 <td class="text-center" width="160px">
 
 
-                                    <a href="<?= base_url('item/edit/') . $value->category_id ?>" class="btn btn-info btn-xs">
+                                    <a href="<?= base_url('item/edit/') . $value->item_id ?>" class="btn btn-info btn-xs">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <a href="<?= base_url('item/hapus/') . $value->category_id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda Yakin?')">
+                                    <a href="<?= base_url('item/hapus/') . $value->item_id ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah anda Yakin?')">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

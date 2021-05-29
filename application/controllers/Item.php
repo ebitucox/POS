@@ -28,12 +28,23 @@ class Item extends CI_Controller
         $item->name = null;
         $item->price = null;
 
+        // melempar data lalu melakukan perulangan di utem_form
         $category  = $this->category_m->get();
+
+        // melakukan perulangan lalu melempar data ke item_form
+
+        $query_unit = $this->unit_m->get();
+        $unit[null] = '-pilih-';
+        foreach ($query_unit->result() as $key => $value) {
+            $unit[$value->unit_id] = $value->name;
+        }
         $data = array(
             'page' => 'add',
             'row'   => $item,
-            'category' => $category
+            'category' => $category,
+            'unit' => $unit, 'selectedunit' => null,
         );
+
         $this->template->load('template', 'produk/item/item_form', $data);
     }
 

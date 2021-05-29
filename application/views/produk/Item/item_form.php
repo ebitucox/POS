@@ -55,6 +55,12 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="">Unit *</label>
+                                <?php echo form_dropdown('unit', $unit, $selectedunit, ['class' => 'form-control', 'required' => 'required']) ?>
+                            </div>
+
+
+                            <div class="form-group">
                                 <label for="">Price</label>
                                 <input type="text" name="price" value="<?= $row->price ?>" class="form-control" required>
 
