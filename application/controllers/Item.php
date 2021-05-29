@@ -66,6 +66,7 @@ class Item extends CI_Controller
             foreach ($query_unit->result() as $key => $value) {
                 $unit[$value->unit_id] = $value->name;
             }
+
             $data = array(
                 'page' => 'edit',
                 'row'   => $item,
@@ -82,6 +83,11 @@ class Item extends CI_Controller
 
     public function process()
     {
+        $config['upload_path']          = './uploads/product';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 2048;
+        $config['file_name']            = 'item-' . date('ymd') . '_' . substr(md5(rand()), 0, 10);
+        $this->load->library('upload', $config);
 
         $post = $this->input->post(null, TRUE);
 
@@ -90,12 +96,6 @@ class Item extends CI_Controller
                 $this->session->set_flashdata('error', "barcode $post[barcode] sudah dipakai");
                 redirect(base_url('item/add'));
             } else {
-                $config['upload_path']          = './uploads/product';
-                $config['allowed_types']        = 'gif|jpg|png|jpeg';
-                $config['max_size']             = 2048;
-                $config['file_name']            = 'item-' . date('ymd') . '_' . substr(md5(rand()), 0, 10);
-                $this->load->library('upload', $config);
-
 
                 if (@$_FILES['image']['name'] != null) {
                     if ($this->upload->do_upload('image')) {
@@ -124,15 +124,38 @@ class Item extends CI_Controller
                 $this->session->set_flashdata('error', "barcode $post[barcode] sudah dipakai");
                 redirect(base_url('item/edit/' . $post['id']));
             } else {
+                if (@$_FILES['image']['name'] != null) {
+                    if ($this->upload->do_upload('image')) {
 
-                $this->item_m->edit($post);
+                        // menghapus gambar lama setelah diedit
+                        $item = $this->item_m->get($post['id'])->row();
+                        if ($item->image != null) {
+                            $target_file = './uploads/product/' . $item->image;
+                            unlink($target_file);
+                        }
+
+                        // mengupload gambar
+                        $post['image'] = $this->upload->data('file_name');
+                        $this->item_m->edit($post);
+                        if ($this->db->affected_rows() > 0) {
+                            $this->session->set_flashdata('success', 'Data berhasil disimpan');
+                        }
+                        redirect(base_url('item'));
+                    } else {
+                        $error = $this->upload->display_errors();
+                        $this->session->set_flashdata('error', $error);
+                        redirect(base_url('item/add'));
+                    }
+                } else {
+                    $post['image'] = null;
+                    $this->item_m->edit($post);
+                    if ($this->db->affected_rows() > 0) {
+                        $this->session->set_flashdata('success', 'Data berhasil disimpan');
+                    }
+                    redirect(base_url('item'));
+                }
             }
         }
-
-        if ($this->db->affected_rows() > 0) {
-            $this->session->set_flashdata('success', 'Data berhasil diubah');
-        }
-        redirect(base_url('item'));
     }
 
 

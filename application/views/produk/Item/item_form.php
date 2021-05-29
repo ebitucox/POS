@@ -69,7 +69,19 @@
 
                             <div class="form-group">
                                 <label for="">Image</label>
+
+                                <?php
+                                if ($page == 'edit') {
+
+                                    if ($row->image != null) { ?>
+                                        <div>
+                                            <img src="<?= base_url('uploads/product/' . $row->image) ?>" style="width:50%" alt="">
+                                        </div>
+                                <?php }
+                                } ?>
+
                                 <input type="file" name="image" class="form-control">
+                                <small>(Biarkan kosong jika tidak <?= $page == 'edit' ? 'diganti' : 'ada' ?>)</small>
                             </div>
 
                             <div class="form-group">

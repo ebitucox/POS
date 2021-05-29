@@ -52,7 +52,7 @@
                                 <td><?= $value->stock ?></td>
                                 <td>
                                     <?php if ($value->image != null) { ?>
-                                        <img src="<?= base_url('uploads/product/' . $value->image) ?>" alt="" style="width: 100px;">
+                                        <img src="<?= base_url('uploads/product/' . $value->image) ?>" alt="" style="width: 100px; height: 120px">
                                     <?php } ?>
 
                                 </td>
