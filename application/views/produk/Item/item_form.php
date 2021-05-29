@@ -49,7 +49,7 @@
                                 <select name="category" class="form-control">
                                     <option value="">- Pilih -</option>
                                     <?php foreach ($category->result() as $key => $value) : ?>
-                                        <option value="<?= $value->category_id ?>"><?= $value->name ?></option>
+                                        <option value="<?= $value->category_id ?>" <?= $value->category_id == $row->category_id ? "selected" : null ?>><?= $value->name ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

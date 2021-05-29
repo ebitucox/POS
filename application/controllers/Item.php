@@ -27,6 +27,7 @@ class Item extends CI_Controller
         $item->barcode = null;
         $item->name = null;
         $item->price = null;
+        $item->category_id = null;
 
         // melempar data lalu melakukan perulangan di utem_form
         $category  = $this->category_m->get();
@@ -55,10 +56,23 @@ class Item extends CI_Controller
 
         if ($query->num_rows() > 0) {
             $item = $query->row();
+            // melempar data lalu melakukan perulangan di utem_form
+            $category  = $this->category_m->get();
+
+            // melakukan perulangan lalu melempar data ke item_form
+
+            $query_unit = $this->unit_m->get();
+            $unit[null] = '-pilih-';
+            foreach ($query_unit->result() as $key => $value) {
+                $unit[$value->unit_id] = $value->name;
+            }
             $data = array(
                 'page' => 'edit',
-                'row' => $item
+                'row'   => $item,
+                'category' => $category,
+                'unit' => $unit, 'selectedunit' => $item->unit_id,
             );
+
             $this->template->load('template', 'produk/item/item_form', $data);
         } else {
             echo "<script> alert('Data tidak ditemukan ');</script>";
