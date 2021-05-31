@@ -47,7 +47,13 @@
                         foreach ($row->result() as $key => $value) : ?>
                             <tr>
                                 <td style="width:5%;"><?= $no++ ?></td>
-                                <td><?= $value->barcode ?></td>
+                                <td>
+
+                                    <?= $value->barcode ?><br>
+                                    <a href="<?= base_url('item/barcode_qrcode/') . $value->item_id ?>" class="btn btn-default btn-xs">
+                                        Generate <i class="fas fa-barcode"></i>
+                                    </a>
+                                </td>
                                 <td><?= $value->name ?></td>
                                 <td><?= $value->category_name ?></td>
                                 <td><?= $value->unit_name ?></td>

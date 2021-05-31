@@ -174,4 +174,10 @@ class Item extends CI_Controller
         }
         redirect(base_url('item'));
     }
+
+    function barcode_qrcode($id)
+    {
+        $data['row'] = $this->item_m->get($id)->row();
+        $this->template->load('template', 'produk/item/barcode_qrcode', $data);
+    }
 }
