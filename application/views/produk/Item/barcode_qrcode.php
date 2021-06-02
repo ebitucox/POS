@@ -65,7 +65,9 @@
                 <div class="card-body mt-5">
                     <center>
                         <?php
-                        $qrcode = "pt.ebit-" . $row->item_id . "-" . $row->name . "";
+
+                        $qrcode = $row->barcode;
+
                         if (isset($qrcode)) {
 
                             //file path for store images
@@ -75,12 +77,16 @@
                             $file_name = $qrcode . ".png";
                             $folder_file = $folder . $file_name;
                             QRcode::png($qrcode, $folder_file);
-                            echo "<img src=" . '../../uploads/qr-code/' . $file_name . " width='180px'><br>";
+                            echo "<img src=" . base_url('uploads/qr-code/') . $file_name . " width='180px'><br>";
                             echo "<small> $qrcode </small>";
                         } else {
                             echo 'Tidak ada kode qrcode';
                         }
                         ?>
+                        <br> <br>
+                        <a href="<?= base_url('item/qrcode_print/' . $row->item_id) ?>" target="_blank" class="btn btn-default btn-sm">
+                            <i class="fa fa-print"></i>print
+                        </a>
                     </center>
                 </div>
 
@@ -89,4 +95,4 @@
 
 
         </div>
-        < </section>
+</section>
