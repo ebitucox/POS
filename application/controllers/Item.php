@@ -185,6 +185,22 @@ class Item extends CI_Controller
         $this->template->load('template', 'produk/item/barcode_qrcode', $data);
     }
 
+    public function barcode_print($id)
+    {
+        $data['row'] = $this->item_m->get($id)->row();
+
+        $html = $this->load->view('produk/item/barcode_print', $data, true);
+        $this->fungsi->PdfGenerator($html, 'barcode-' . $data['row']->barcode, 'A4', 'landscape');
+    }
+
+    public function qrcode_print($id)
+    {
+        $data['row'] = $this->item_m->get($id)->row();
+
+        $html = $this->load->view('produk/item/qrcode_print', $data, true);
+        $this->fungsi->PdfGenerator($html, 'barcode-' . $data['row']->barcode, 'A4', 'landscape');
+    }
+
     // public function qrcodeGenerator()
     // {
 

@@ -7,9 +7,17 @@ namespace Composer\Autoload;
 class ComposerStaticInite2b9f79b18d374fdcb2d8bb0baf56667
 {
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Svg\\' => 4,
+        ),
         'P' => 
         array (
             'Picqer\\Barcode\\' => 15,
+        ),
+        'F' => 
+        array (
+            'FontLib\\' => 8,
         ),
         'E' => 
         array (
@@ -17,6 +25,7 @@ class ComposerStaticInite2b9f79b18d374fdcb2d8bb0baf56667
         ),
         'D' => 
         array (
+            'Dompdf\\' => 7,
             'DASPRiD\\Enum\\' => 13,
         ),
         'B' => 
@@ -26,13 +35,25 @@ class ComposerStaticInite2b9f79b18d374fdcb2d8bb0baf56667
     );
 
     public static $prefixDirsPsr4 = array (
+        'Svg\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
+        ),
         'Picqer\\Barcode\\' => 
         array (
             0 => __DIR__ . '/..' . '/picqer/php-barcode-generator/src',
         ),
+        'FontLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
+        ),
         'Endroid\\QrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/endroid/qr-code/src',
+        ),
+        'Dompdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
         ),
         'DASPRiD\\Enum\\' => 
         array (
@@ -44,8 +65,24 @@ class ComposerStaticInite2b9f79b18d374fdcb2d8bb0baf56667
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'Sabberworm\\CSS' => 
+            array (
+                0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Dompdf\\Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
+        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
+        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
+        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
+        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
+        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -53,6 +90,7 @@ class ComposerStaticInite2b9f79b18d374fdcb2d8bb0baf56667
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInite2b9f79b18d374fdcb2d8bb0baf56667::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInite2b9f79b18d374fdcb2d8bb0baf56667::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInite2b9f79b18d374fdcb2d8bb0baf56667::$prefixesPsr0;
             $loader->classMap = ComposerStaticInite2b9f79b18d374fdcb2d8bb0baf56667::$classMap;
 
         }, null, ClassLoader::class);

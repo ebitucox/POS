@@ -24,6 +24,7 @@
   },
   "require": {
     "picqer/php-barcode-generator": "^2.2",
-    "endroid/qr-code": "^4.1"
+    "endroid/qr-code": "^4.1",
+    "dompdf/dompdf": "^1.0"
   }
 }

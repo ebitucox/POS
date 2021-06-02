@@ -36,6 +36,13 @@
                         echo '<img src="data:image/png;base64,' . base64_encode($generator->getBarcode($row->barcode, $generator::TYPE_CODE_128)) . '" width="350px">';
                         ?> <br>
                         <small> <?= $row->barcode ?></small>
+                        <br><br>
+
+                        <a href="<?= base_url('item/barcode_print/' . $row->item_id) ?>" target="_blank" class="btn btn-default btn-sm">
+                            <i class="fa fa-print"></i>print
+                        </a>
+
+
                     </center>
                 </div>
 
