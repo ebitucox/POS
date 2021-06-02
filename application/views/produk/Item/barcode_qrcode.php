@@ -13,7 +13,7 @@
 
 
     <div class="content">
-        <?php $this->view('message');  ?>
+
         <div class="card">
             <div class="card-header">
 
@@ -44,4 +44,42 @@
 
 
         </div><!-- /.container-fluid -->
-</section>
+
+        <div class="card">
+            <div class="card-header">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Qrcode generator <i class="fa fa-qrcode"></i></h3>
+                    </div>
+
+                </div>
+
+                <div class="card-body mt-5">
+                    <center>
+                        <?php
+                        $qrcode = "pt.ebit-" . $row->item_id . "-" . $row->name . "";
+                        if (isset($qrcode)) {
+
+                            //file path for store images
+                            $SERVERFILEPATH = $_SERVER['DOCUMENT_ROOT'] . '/POS/uploads/qr-code/';
+
+                            $folder = $SERVERFILEPATH;
+                            $file_name = $qrcode . ".png";
+                            $folder_file = $folder . $file_name;
+                            QRcode::png($qrcode, $folder_file);
+                            echo "<img src=" . '../../uploads/qr-code/' . $file_name . " width='180px'><br>";
+                            echo "<small> $qrcode </small>";
+                        } else {
+                            echo 'Tidak ada kode qrcode';
+                        }
+                        ?>
+                    </center>
+                </div>
+
+
+            </div>
+
+
+        </div>
+        < </section>

@@ -8,6 +8,7 @@ class Item extends CI_Controller
     {
         parent::__construct();
         check_not_login();
+        $this->load->library('phpqrcode/qrlib');
         // check_admin();
         $this->load->model(['item_m', 'category_m', 'unit_m']);
     }
@@ -122,10 +123,13 @@ class Item extends CI_Controller
             }
         } else if (isset($_POST['edit'])) {
             if ($this->item_m->check_barcode($post['barcode'], $post['id'])->num_rows() > 0) {
+
                 $this->session->set_flashdata('error', "barcode $post[barcode] sudah dipakai");
                 redirect(base_url('item/edit/' . $post['id']));
             } else {
+
                 if (@$_FILES['image']['name'] != null) {
+
                     if ($this->upload->do_upload('image')) {
 
                         // menghapus gambar lama setelah diedit
@@ -134,10 +138,10 @@ class Item extends CI_Controller
                             $target_file = './uploads/product/' . $item->image;
                             unlink($target_file);
                         }
-
                         // mengupload gambar
                         $post['image'] = $this->upload->data('file_name');
                         $this->item_m->edit($post);
+
                         if ($this->db->affected_rows() > 0) {
                             $this->session->set_flashdata('success', 'Data berhasil disimpan');
                         }
@@ -180,4 +184,29 @@ class Item extends CI_Controller
         $data['row'] = $this->item_m->get($id)->row();
         $this->template->load('template', 'produk/item/barcode_qrcode', $data);
     }
+
+    // public function qrcodeGenerator()
+    // {
+
+
+    //     $qrtext = "TES";
+
+    //     if (isset($qrtext)) {
+
+    //         //file path for store images
+    //         $SERVERFILEPATH = $_SERVER['DOCUMENT_ROOT'] . '/POS/uploads/qr-code/';
+
+    //         $text = $qrtext;
+    //         $text1 = substr($text, 0, 9);
+
+    //         $folder = $SERVERFILEPATH;
+    //         $file_name1 = $text1 . "-Qrcode" . rand(2, 200) . ".png";
+    //         $file_name = $folder . $file_name1;
+    //         QRcode::png($text, $file_name);
+
+    //         echo "<center><img src=" . 'http://localhost/POS/uploads/qr-code/' . $file_name1 . "></center";
+    //     } else {
+    //         echo 'No Text Entered';
+    //     }
+    // }
 }

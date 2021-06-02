@@ -53,6 +53,8 @@
                                     <a href="<?= base_url('item/barcode_qrcode/') . $value->item_id ?>" class="btn btn-default btn-xs">
                                         Generate <i class="fas fa-barcode"></i>
                                     </a>
+
+
                                 </td>
                                 <td><?= $value->name ?></td>
                                 <td><?= $value->category_name ?></td>
